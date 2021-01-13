@@ -8,19 +8,21 @@ const Users = ({ users, loading }) => {
   return (
     <ul className='list-group mb-4'>
       {users.map(user => (
-        <diV>
-          <li key={user._id} className='list-group-item'>
+        <div className='list-group-item' style={{ display: "flex", justifyContent: "space-evenly", alignItems: "center" }}>
+          <li key={user._id} style={{ width: 200 }}>
             {user.name},
 
         </li>
-          <p>#{user.tags}</p>
-          <img key={user.id} src={user.picture} alt="user img" />
+          <p style={{ margin: 0, width: 200 }}>#{user.tags[0]} #{user.tags[1]}</p>
+          <img key={user.id} src={user.picture} alt="user img" style={{ width: 35 }} />
           {user.isActive === true &&
-            <div className="isActive"></div>
-            }
-            
+            <div style={{ width: 10, height: 10, backgroundColor: "greenyellow" }}></div>
+          }
 
-        </diV>
+          {user.isActive === false &&
+            <div style={{ width: 10, height: 10, backgroundColor: "red" }}></div>
+          }
+        </div>
       ))}
     </ul>
   );
