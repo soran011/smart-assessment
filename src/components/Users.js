@@ -8,9 +8,19 @@ const Users = ({ users, loading }) => {
   return (
     <ul className='list-group mb-4'>
       {users.map(user => (
-        <li key={user._id} className='list-group-item'>
-          {user.name}
+        <diV>
+          <li key={user._id} className='list-group-item'>
+            {user.name},
+
         </li>
+          <p>#{user.tags}</p>
+          <img key={user.id} src={user.picture} alt="user img" />
+          {user.isActive === true &&
+            <div className="isActive"></div>
+            }
+            
+
+        </diV>
       ))}
     </ul>
   );
